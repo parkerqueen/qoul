@@ -132,5 +132,40 @@ The transcription files for both the corpora are already placed in the repositor
 
 #### Running Notebook
 
-Launch the notebook `qoul.ipynb` using Jupyter and you can run the cells in given order to train an ASR for Urdu.
+Launch and run the notebook `qoul.ipynb` to train different ASR models for Urdu.
 
+## Running the Model
+
+You may make use of this [repository](https://github.com/Taha-Firoz/kaldi2scribe) published by a friend of mine. One needs ample understanding of Kaldi mechanics to actually transcribe an audio file using a pre-trained model. If you want a quick and dirty way, however, do yourself a favor and use the repository I linked.
+
+## Evaluation
+
+Note that the following scores are for a model trained on the 3 corpora mentioned above and you scores might differ.
+
+<center>
+
+|   Model   | Minimum WER | Minimum SER |
+|:---------:|:-----------:|:-----------:|
+| Monophone | 33.24%      | 64.26%      |
+| Tri-1     | 16.70%      | 52.41%      |
+| Tri-2     | 16.74%      | 52.80%      |
+| Tri-3     | 13.63%      | 52.62%      |
+| SGMM2     | N/A         | N/A         |
+| MMI_SGMM2 | N/A         | N/A         |
+
+</center>
+
+After training our monophone system, we were slightly disappointed considering we had about 100 hours of data and there have previously been reports of Kaldi models achieving less WER on much tinier corpora. Yet, we took consolation in the fact that we were able to achieve something, despite the depression episodes kaldi led us into.
+
+Tri-1 was a huge, mammoth, gargantuan improvement over the monophone system. We saw almost 50% reduction in the WER, while the SER saw a drop to ~52%. Tri-2 seemed to perform on par with Tri-1 and wasn't much of an improvement. Tri-3 took our WER to ~13%  which is the lowest we've encountered so far, however, there wasn't much of a drop in the SER. To clarify, all of the WERs and SERs mentioned here should be read as "Minimum (S/W)ER".
+
+## Contributors
+
+* [parkerqueen](https://github.com/parkerqueen)
+* [saad039](https://github.com/saad039)
+
+## Acknowledgements
+
+* [Kaldi for Dummies](https://kaldi-asr.org/doc/kaldi_for_dummies.html)
+* [A Kaldi Tutorial](https://www.eleanorchodroff.com/tutorial/kaldi/introduction.html)
+* Almost all scripts were borrowed from the RUMI corpus and minorly altered to suit our needs.
